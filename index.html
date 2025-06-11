@@ -9,8 +9,8 @@
     <style>
         body {
             font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
-            background-color: #f8fafc; /* Lighter Slate-50 background */
-            color: #1e293b; /* Darker Slate-800 text */
+            background-color: #f0f9ff; /* Light sky blue background */
+            color: #334155; /* Slate text */
         }
         .page-content {
             padding-bottom: 80px; /* Space for footer */
@@ -25,25 +25,25 @@
         .reward-card:hover { transform: translateY(-5px) scale(1.03); box-shadow: 0 10px 15px -3px rgba(0,0,0,0.1), 0 4px 6px -4px rgba(0,0,0,0.1); }
         
         .slider { -webkit-appearance: none; width: 100%; height: 10px; border-radius: 5px; background: #d1d5db; outline: none; transition: background 0.2s; }
-        .slider::-webkit-slider-thumb { -webkit-appearance: none; appearance: none; width: 24px; height: 24px; border-radius: 50%; background: #4f46e5; /* Indigo-600 */ cursor: pointer; box-shadow: 0 0 2px rgba(0,0,0,0.3); }
-        .slider::-moz-range-thumb { width: 24px; height: 24px; border-radius: 50%; background: #4f46e5; cursor: pointer; }
+        .slider::-webkit-slider-thumb { -webkit-appearance: none; appearance: none; width: 24px; height: 24px; border-radius: 50%; background: #2563eb; /* Tailwind blue-600 */ cursor: pointer; box-shadow: 0 0 2px rgba(0,0,0,0.3); }
+        .slider::-moz-range-thumb { width: 24px; height: 24px; border-radius: 50%; background: #2563eb; cursor: pointer; }
 
         .time-slot { transition: all 0.2s ease; border: 1px solid #cbd5e1; /* Slate-300 border */ }
-        .time-slot.selected { background-color: #4f46e5; color: white; border-color: #3730a3; /* Darker indigo for selected border */ font-weight: 600; box-shadow: 0 0 0 2px rgba(79, 70, 229, 0.5); }
+        .time-slot.selected { background-color: #2563eb; color: white; border-color: #1d4ed8; /* Darker blue for selected border */ font-weight: 600; box-shadow: 0 0 0 2px rgba(59, 130, 246, 0.5); }
         .time-slot-hypo.selected { background-color: #dc2626; color: white; border-color: #b91c1c; box-shadow: 0 0 0 2px rgba(220, 38, 38, 0.5); }
         
         .alert-message { padding: 0.75rem 1rem; margin-bottom: 1rem; border-left-width: 4px; border-radius: 0.375rem; font-size: 0.875rem; }
         .alert-warning { border-color: #f59e0b; background-color: #fffbeb; color: #b45309; } /* Amber */
         .alert-danger { border-color: #ef4444; background-color: #fef2f2; color: #b91c1c; } /* Red */
-        .alert-info { border-color: #4f46e5; background-color: #eef2ff; color: #3730a3; } /* Indigo */
+        .alert-info { border-color: #3b82f6; background-color: #eff6ff; color: #1d4ed8; } /* Blue */
 
         .pro-tip { background-color: #fffbeb; border-left-width: 4px; border-color: #f59e0b; padding: 0.75rem; border-radius: 0.375rem; margin-top: 1rem; font-size: 0.875rem; color: #b45309; }
         .pro-tip h4 { font-semibold: flex; align-items: center; margin-bottom: 0.25rem; }
 
         .pulse-animation { animation: pulse 2s infinite; }
         @keyframes pulse {
-            0%, 100% { box-shadow: 0 0 0 0 rgba(79, 70, 229, 0.7); } /* Indigo-600 */
-            70% { box-shadow: 0 0 0 10px rgba(79, 70, 229, 0); }
+            0%, 100% { box-shadow: 0 0 0 0 rgba(59, 130, 246, 0.7); }
+            70% { box-shadow: 0 0 0 10px rgba(59, 130, 246, 0); }
         }
 
         .learning-modal { animation: fadeIn 0.3s ease-out; }
@@ -57,17 +57,14 @@
             from { opacity: 0.5; }
             to { opacity: 1; }
         }
-        .module-progress-bar { height: 8px; background-color: #4f46e5; border-radius: 4px; transition: width 0.3s ease-in-out; } /* Indigo-600 */
+        .module-progress-bar { height: 8px; background-color: #3b82f6; border-radius: 4px; transition: width 0.3s ease-in-out; }
 
-        .insulin-option input:checked + label { background-color: #eef2ff; border-color: #a5b4fc; /* Indigo lighter shades */ }
+        .insulin-option input:checked + label { background-color: #bfdbfe; border-color: #60a5fa; /* Blue lighter shades */ }
         
-        .page-header-colored { background: linear-gradient(to right, #4f46e5, #3730a3); /* Indigo gradient */
-            color: white; padding: 1rem 1.25rem; border-radius: 0 0 1.5rem 1.5rem; margin: -1.25rem -1.25rem 1.5rem -1.25rem;
-            box-shadow: 0 4px 6px -1px rgba(0,0,0,0.1), 0 2px 4px -1px rgba(0,0,0,0.06);
-        }
+        .page-header-colored { background: linear-gradient(to right, #3b82f6, #1e40af); color: white; padding: 1rem 1.25rem; border-radius: 0 0 1.5rem 1.5rem; margin: -1.25rem -1.25rem 1.5rem -1.25rem; box-shadow: 0 4px 6px -1px rgba(0,0,0,0.1), 0 2px 4px -1px rgba(0,0,0,0.06); }
         
-        .injection-site { cursor: pointer; fill: #c7d2fe; /* Indigo-200 */ stroke: #4f46e5; stroke-width:1.5; transition: fill 0.2s ease, transform 0.1s ease; }
-        .injection-site:hover { fill: #818cf8; /* Indigo-400 */ transform: scale(1.1); }
+        .injection-site { cursor: pointer; fill: #93c5fd; /* Lighter blue */ stroke: #3b82f6; stroke-width:1.5; transition: fill 0.2s ease, transform 0.1s ease; }
+        .injection-site:hover { fill: #60a5fa; /* Medium blue */ transform: scale(1.1); }
         .injection-site.active, .injection-site.completed { fill: #10b981; /* Green */ stroke: #059669; }
         .injection-site.error { fill: #ef4444; /* Red */ }
         .injection-site-number { fill: white; font-size: 10px; font-weight: bold; pointer-events: none; text-anchor: middle; dominant-baseline: middle; }
@@ -78,11 +75,13 @@
 
         /* Improved focus states */
         input[type="text"]:focus, input[type="number"]:focus, input[type="datetime-local"]:focus, select:focus {
-            outline: none; box-shadow: 0 0 0 3px rgba(79, 70, 229, 0.5); /* Tailwind focus ring concept - Indigo */
-            border-color: #4f46e5; /* Indigo-600 */
+            outline: none;
+            box-shadow: 0 0 0 3px rgba(59, 130, 246, 0.5); /* Tailwind focus ring concept */
+            border-color: #3b82f6;
         }
         button:focus-visible, .time-slot:focus-visible, .nav-feature-btn:focus-visible, .settings-option:focus-visible {
-             outline: none; box-shadow: 0 0 0 3px rgba(79, 70, 229, 0.5); /* Indigo-600 */
+             outline: none;
+             box-shadow: 0 0 0 3px rgba(59, 130, 246, 0.5);
         }
         .reward-card[data-unlocked="true"] {
             border-color: #f59e0b; /* Amber-500 */
@@ -96,26 +95,19 @@
     </style>
 </head>
 <body class="min-h-screen">
-    <div class="max-w-md mx-auto bg-white min-h-screen shadow-xl relative overflow-hidden"> 
-        <div class="page-content">
+    <div class="max-w-md mx-auto bg-white min-h-screen shadow-xl relative overflow-hidden"> <div class="page-content">
 
             <main class="p-5" id="dashboardPage">
                 <header class="mb-6 text-center">
-                    <img src="https://via.placeholder.com/80x80/4f46e5/ffffff?text=SyringeLogo" alt="Modern Syringe Logo" class="mx-auto mb-2 h-20 w-20 rounded-full bg-indigo-100 p-2"/>
-                    
-                    <div class="mb-4">
-                        <label for="patientName" class="block text-sm font-medium text-slate-700 mb-1">Your Name:</label>
-                        <input type="text" id="patientName" placeholder="Enter your name" class="w-full p-2 border border-slate-300 rounded-md focus:ring-indigo-500 focus:border-indigo-500">
-                    </div>
-                    
-                    <h1 class="text-3xl font-bold text-indigo-700">InsulinBuddy</h1>
-                    <p class="text-slate-600 mt-1" id="welcomeMessage">Your companion for insulin therapy success.</p>
+                    <img src="https://img.icons8.com/fluency/96/000000/medical-lab.png" alt="InsulinBuddy Logo" class="mx-auto mb-2 h-20 w-20"/>
+                    <h1 class="text-3xl font-bold text-blue-700">Welcome to InsulinBuddy</h1>
+                    <p class="text-slate-600 mt-1">Your companion for insulin therapy success.</p>
                 </header>
 
-                <div class="bg-indigo-50 border border-indigo-200 rounded-xl p-5 mb-6 shadow-lg">
-                    <h2 class="text-xl font-semibold text-indigo-800 mb-2">Self-Paced Learning Module</h2>
+                <div class="bg-blue-50 border border-blue-200 rounded-xl p-5 mb-6 shadow-lg">
+                    <h2 class="text-xl font-semibold text-blue-800 mb-2">Self-Paced Learning Module</h2>
                     <p class="text-slate-600 mb-4 text-sm">Master your insulin, injection techniques, hypoglycemia management, and earn rewards!</p>
-                    <button id="startLearningBtn" class="w-full bg-indigo-600 hover:bg-indigo-700 text-white font-bold py-3 px-4 rounded-lg shadow-md transition duration-300 flex items-center justify-center pulse-animation" aria-label="Start the self-paced learning module">
+                    <button id="startLearningBtn" class="w-full bg-blue-600 hover:bg-blue-700 text-white font-bold py-3 px-4 rounded-lg shadow-md transition duration-300 flex items-center justify-center pulse-animation" aria-label="Start the self-paced learning module">
                         <svg xmlns="http://www.w3.org/2000/svg" class="h-5 w-5 mr-2" viewBox="0 0 20 20" fill="currentColor"><path fill-rule="evenodd" d="M10 18a8 8 0 100-16 8 8 0 000 16zm3.707-8.707l-3-3a1 1 0 00-1.414 0l-3 3a1 1 0 001.414 1.414L9 9.414V13a1 1 0 102 0V9.414l1.293 1.293a1 1 0 001.414-1.414z" clip-rule="evenodd" /></svg>
                         Start Learning Now
                     </button>
@@ -128,7 +120,7 @@
                     </button>
                     <button class="nav-feature-btn bg-white p-3 rounded-lg shadow-md hover:shadow-lg transition-all duration-200" data-target="injectionSimulator" aria-label="Injection Simulator">
                          <img src="https://img.icons8.com/fluency/48/000000/syringe.png" alt="Injection Simulator" class="mx-auto h-10 w-10 mb-1"/>
-                         <span class="text-xs font-medium text-slate-700">Injection Simulator</span>
+                        <span class="text-xs font-medium text-slate-700">Injection Simulator</span>
                     </button>
                     <button class="nav-feature-btn bg-white p-3 rounded-lg shadow-md hover:shadow-lg transition-all duration-200" data-target="hypoGuide" aria-label="Hypoglycemia Guide">
                         <img src="https://img.icons8.com/fluency/48/000000/glucose-meter.png" alt="Hypoglycemia Guide" class="mx-auto h-10 w-10 mb-1"/>
@@ -164,14 +156,14 @@
                             <div class="mb-4">
                                 <label class="block text-sm font-medium text-slate-700 mb-2">What type(s) of insulin do you use? (Select all that apply)</label>
                                 <div id="insulinTypes" class="space-y-2">
-                                    <div class="insulin-option"><input type="checkbox" id="lispro" name="insulin_type" value="lispro" data-category="rapid" class="sr-only"><label for="lispro" class="p-3 border rounded-md block cursor-pointer hover:bg-indigo-100 transition-colors text-sm">Lispro (Humalog, Admelog)</label></div>
-                                    <div class="insulin-option"><input type="checkbox" id="aspart" name="insulin_type" value="aspart" data-category="rapid" class="sr-only"><label for="aspart" class="p-3 border rounded-md block cursor-pointer hover:bg-indigo-100 transition-colors text-sm">Aspart (NovoLog, Fiasp)</label></div>
-                                    <div class="insulin-option"><input type="checkbox" id="glulisine" name="insulin_type" value="glulisine" data-category="rapid" class="sr-only"><label for="glulisine" class="p-3 border rounded-md block cursor-pointer hover:bg-indigo-100 transition-colors text-sm">Glulisine (Apidra)</label></div>
-                                    <div class="insulin-option"><input type="checkbox" id="regular" name="insulin_type" value="regular" data-category="short" class="sr-only"><label for="regular" class="p-3 border rounded-md block cursor-pointer hover:bg-indigo-100 transition-colors text-sm">Regular (Humulin R, Novolin R)</label></div>
-                                    <div class="insulin-option"><input type="checkbox" id="glargine" name="insulin_type" value="glargine" data-category="long" class="sr-only"><label for="glargine" class="p-3 border rounded-md block cursor-pointer hover:bg-indigo-100 transition-colors text-sm">Glargine (Lantus, Basaglar, Toujeo)</label></div>
-                                    <div class="insulin-option"><input type="checkbox" id="degludec" name="insulin_type" value="degludec" data-category="long" class="sr-only"><label for="degludec" class="p-3 border rounded-md block cursor-pointer hover:bg-indigo-100 transition-colors text-sm">Degludec (Tresiba)</label></div>
-                                    <div class="insulin-option"><input type="checkbox" id="detemir" name="insulin_type" value="detemir" data-category="long" class="sr-only"><label for="detemir" class="p-3 border rounded-md block cursor-pointer hover:bg-indigo-100 transition-colors text-sm">Detemir (Levemir)</label></div>
-                                    <div class="insulin-option"><input type="checkbox" id="nph" name="insulin_type" value="nph" data-category="intermediate" class="sr-only"><label for="nph" class="p-3 border rounded-md block cursor-pointer hover:bg-indigo-100 transition-colors text-sm">NPH (Humulin N, Novolin N)</label></div>
+                                    <div class="insulin-option"><input type="checkbox" id="lispro" name="insulin_type" value="lispro" data-category="rapid" class="sr-only"><label for="lispro" class="p-3 border rounded-md block cursor-pointer hover:bg-blue-100 transition-colors text-sm">Lispro (Humalog, Admelog)</label></div>
+                                    <div class="insulin-option"><input type="checkbox" id="aspart" name="insulin_type" value="aspart" data-category="rapid" class="sr-only"><label for="aspart" class="p-3 border rounded-md block cursor-pointer hover:bg-blue-100 transition-colors text-sm">Aspart (NovoLog, Fiasp)</label></div>
+                                    <div class="insulin-option"><input type="checkbox" id="glulisine" name="insulin_type" value="glulisine" data-category="rapid" class="sr-only"><label for="glulisine" class="p-3 border rounded-md block cursor-pointer hover:bg-blue-100 transition-colors text-sm">Glulisine (Apidra)</label></div>
+                                    <div class="insulin-option"><input type="checkbox" id="regular" name="insulin_type" value="regular" data-category="short" class="sr-only"><label for="regular" class="p-3 border rounded-md block cursor-pointer hover:bg-blue-100 transition-colors text-sm">Regular (Humulin R, Novolin R)</label></div>
+                                    <div class="insulin-option"><input type="checkbox" id="glargine" name="insulin_type" value="glargine" data-category="long" class="sr-only"><label for="glargine" class="p-3 border rounded-md block cursor-pointer hover:bg-blue-100 transition-colors text-sm">Glargine (Lantus, Basaglar, Toujeo)</label></div>
+                                    <div class="insulin-option"><input type="checkbox" id="degludec" name="insulin_type" value="degludec" data-category="long" class="sr-only"><label for="degludec" class="p-3 border rounded-md block cursor-pointer hover:bg-blue-100 transition-colors text-sm">Degludec (Tresiba)</label></div>
+                                    <div class="insulin-option"><input type="checkbox" id="detemir" name="insulin_type" value="detemir" data-category="long" class="sr-only"><label for="detemir" class="p-3 border rounded-md block cursor-pointer hover:bg-blue-100 transition-colors text-sm">Detemir (Levemir)</label></div>
+                                    <div class="insulin-option"><input type="checkbox" id="nph" name="insulin_type" value="nph" data-category="intermediate" class="sr-only"><label for="nph" class="p-3 border rounded-md block cursor-pointer hover:bg-blue-100 transition-colors text-sm">NPH (Humulin N, Novolin N)</label></div>
                                 </div>
                                 <div id="insulinSelectionAlert" class="hidden mt-3 alert-message alert-warning"></div>
                             </div>
@@ -188,7 +180,7 @@
                             <p class="mb-4 text-slate-600">Understanding your dosing schedule is crucial.</p>
                             <div class="mb-4">
                                 <label for="rapidDosing" class="block text-sm font-medium text-slate-700 mb-1">For Rapid/Short-acting insulin, when do you typically take it?</label>
-                                <select id="rapidDosing" class="w-full p-2 border border-slate-300 rounded-md focus:ring-indigo-500 focus:border-indigo-500">
+                                <select id="rapidDosing" class="w-full p-2 border border-slate-300 rounded-md focus:ring-blue-500 focus:border-blue-500">
                                     <option value="">Select timing...</option>
                                     <option value="pre_meals">Before meals</option>
                                     <option value="correction">For corrections</option>
@@ -196,9 +188,9 @@
                                     <option value="not_applicable">Not applicable / Don't use</option>
                                 </select>
                             </div>
-                            <div class="mb-4">
+                             <div class="mb-4">
                                 <label for="longDosing" class="block text-sm font-medium text-slate-700 mb-1">For Long-acting insulin, when do you typically take it?</label>
-                                <select id="longDosing" class="w-full p-2 border border-slate-300 rounded-md focus:ring-indigo-500 focus:border-indigo-500">
+                                <select id="longDosing" class="w-full p-2 border border-slate-300 rounded-md focus:ring-blue-500 focus:border-blue-500">
                                     <option value="">Select timing...</option>
                                     <option value="bedtime">At bedtime</option>
                                     <option value="morning">In the morning</option>
@@ -219,14 +211,14 @@
                             
                             <div class="mb-3">
                                 <label for="awareSymptoms" class="block text-sm font-medium text-slate-700 mb-1">Are you aware of common hypoglycemic symptoms?</label>
-                                <select id="awareSymptoms" class="w-full p-2 border border-slate-300 rounded-md focus:ring-indigo-500 focus:border-indigo-500">
+                                <select id="awareSymptoms" class="w-full p-2 border border-slate-300 rounded-md focus:ring-blue-500 focus:border-blue-500">
                                     <option value="">Select...</option><option value="yes">Yes</option><option value="no">No</option>
                                 </select>
                             </div>
                             <div class="mb-3">
                                 <label for="experiencedSymptomsLastWeek" class="block text-sm font-medium text-slate-700 mb-1">Have you experienced any hypoglycemic symptoms in the last week?</label>
-                                <select id="experiencedSymptomsLastWeek" class="w-full p-2 border border-slate-300 rounded-md focus:ring-indigo-500 focus:border-indigo-500">
-                                    <option value="">Select...</option><option value="yes">Yes</option><option value="no">No</option>
+                                <select id="experiencedSymptomsLastWeek" class="w-full p-2 border border-slate-300 rounded-md focus:ring-blue-500 focus:border-blue-500">
+                                     <option value="">Select...</option><option value="yes">Yes</option><option value="no">No</option>
                                 </select>
                             </div>
                             <div id="hypoFollowUpQuestions" class="hidden space-y-3 mt-4 border-t border-slate-200 pt-4">
@@ -261,22 +253,22 @@
                             </div>
                             <p class="mb-2 text-slate-600 text-sm">Rotate sites to prevent skin issues & ensure good insulin absorption. Click numbered areas in order (1-8).</p>
 
-                            <div class="mb-3 p-2 bg-indigo-50 rounded-lg text-center relative">
+                            <div class="mb-3 p-2 bg-blue-50 rounded-lg text-center">
                                 <svg viewBox="0 0 200 250" class="w-full max-w-[200px] mx-auto">
-                                    <path d="M50 50 Q 0 125, 50 200 C 50 220, 150 220, 150 200 Q 200 125, 150 50 Z" fill="#dbeafe" stroke="#93c5fd" stroke-width="2"/>
-                                    
-                                    <circle class="injection-site" id="site1" cx="100" cy="70" r="9" data-site="1"><title>Abdomen Site 1</title></circle><text class="injection-site-number" x="100" y="70">1</text>
-                                    <circle class="injection-site" id="site2" cx="130" cy="85" r="9" data-site="2"><title>Abdomen Site 2</title></circle><text class="injection-site-number" x="130" y="85">2</text>
-                                    <circle class="injection-site" id="site3" cx="145" cy="125" r="9" data-site="3"><title>Abdomen Site 3</title></circle><text class="injection-site-number" x="145" y="125">3</text>
-                                    <circle class="injection-site" id="site4" cx="130" cy="165" r="9" data-site="4"><title>Abdomen Site 4</title></circle><text class="injection-site-number" x="130" y="165">4</text>
-                                    <circle class="injection-site" id="site5" cx="100" cy="180" r="9" data-site="5"><title>Abdomen Site 5</title></circle><text class="injection-site-number" x="100" y="180">5</text>
-                                    <circle class="injection-site" id="site6" cx="70" cy="165" r="9" data-site="6"><title>Abdomen Site 6</title></circle><text class="injection-site-number" x="70" y="165">6</text>
-                                    <circle class="injection-site" id="site7" cx="55" cy="125" r="9" data-site="7"><title>Abdomen Site 7</title></circle><text class="injection-site-number" x="55" y="125">7</text>
-                                    <circle class="injection-site" id="site8" cx="70" cy="85" r="9" data-site="8"><title>Abdomen Site 8</title></circle><text class="injection-site-number" x="70" y="85">8</text>
-                                    
-                                    <circle cx="100" cy="125" r="4" fill="none" stroke="#f87171" stroke-width="1" stroke-dasharray="1.5,1.5"/><text x="100" y="125" font-size="6px" fill="#f87171" text-anchor="middle" dy="12">Avoid Navel</text>
+                                    <path d="M70 20 C 70 10, 130 10, 130 20 L 145 55 Q 150 100, 100 245 Q 50 100, 55 55 Z" fill="#dbeafe" stroke="#93c5fd" stroke-width="2"/>
+                                    <rect x="40" y="60" width="30" height="40" rx="5" fill="#e0f2fe"/> <rect x="130" y="60" width="30" height="40" rx="5" fill="#e0f2fe"/>
+                                    <rect x="50" y="170" width="30" height="50" rx="5" fill="#e0f2fe"/> <rect x="120" y="170" width="30" height="50" rx="5" fill="#e0f2fe"/>
+                                    <circle class="injection-site" id="site1" cx="80" cy="100" r="9" data-site="1"><title>Abdomen Site 1</title></circle><text class="injection-site-number" x="80" y="100">1</text>
+                                    <circle class="injection-site" id="site2" cx="120" cy="100" r="9" data-site="2"><title>Abdomen Site 2</title></circle><text class="injection-site-number" x="120" y="100">2</text>
+                                    <circle class="injection-site" id="site3" cx="75" cy="135" r="9" data-site="3"><title>Abdomen Site 3</title></circle><text class="injection-site-number" x="75" y="135">3</text>
+                                    <circle class="injection-site" id="site4" cx="125" cy="135" r="9" data-site="4"><title>Abdomen Site 4</title></circle><text class="injection-site-number" x="125" y="135">4</text>
+                                    <circle class="injection-site" id="site5" cx="55" cy="75" r="9" data-site="5"><title>Arm Site 5</title></circle><text class="injection-site-number" x="55" y="75">5</text>
+                                    <circle class="injection-site" id="site6" cx="145" cy="75" r="9" data-site="6"><title>Arm Site 6</title></circle><text class="injection-site-number" x="145" y="75">6</text>
+                                    <circle class="injection-site" id="site7" cx="65" cy="190" r="9" data-site="7"><title>Thigh Site 7</title></circle><text class="injection-site-number" x="65" y="190">7</text>
+                                    <circle class="injection-site" id="site8" cx="135" cy="190" r="9" data-site="8"><title>Thigh Site 8</title></circle><text class="injection-site-number" x="135" y="190">8</text>
+                                    <circle cx="100" cy="117.5" r="4" fill="none" stroke="#f87171" stroke-width="1" stroke-dasharray="1.5,1.5"/><text x="100" y="117.5" font-size="6px" fill="#f87171" text-anchor="middle" dy="12">Avoid Navel</text>
                                 </svg>
-                                <p id="siteRotationHint" class="text-center text-sm text-indigo-700 font-medium mt-2">Click on site #<span id="currentSiteToClick" class="font-bold text-lg">1</span>.</p>
+                                <p id="siteRotationHint" class="text-center text-sm text-blue-700 font-medium mt-2">Click on site #<span id="currentSiteToClick" class="font-bold text-lg">1</span>.</p>
                                 <button id="resetRotationBtn" class="mt-2 text-xs bg-slate-200 hover:bg-slate-300 text-slate-700 py-1 px-3 rounded-full">Reset Rotation</button>
                             </div>
                             
@@ -298,38 +290,39 @@
                     <div class="flex justify-between items-center p-4 border-t border-slate-200 bg-slate-100 rounded-b-xl">
                         <button id="prevStepBtn" class="bg-slate-300 hover:bg-slate-400 text-slate-800 font-medium py-2 px-5 rounded-lg transition-colors" aria-label="Previous step">Previous</button>
                         <div id="moduleCompletionActions" class="hidden"> <button id="goToDashboardAfterModuleBtn" class="bg-green-600 hover:bg-green-700 text-white font-bold py-2 px-5 rounded-lg mr-2 transition-colors" aria-label="Go to Dashboard">Dashboard</button>
-                            <button id="goToTrackingAfterModuleBtn" class="bg-indigo-600 hover:bg-indigo-700 text-white font-bold py-2 px-5 rounded-lg transition-colors" aria-label="Start Tracking">Start Tracking</button>
+                            <button id="goToTrackingAfterModuleBtn" class="bg-blue-600 hover:bg-blue-700 text-white font-bold py-2 px-5 rounded-lg transition-colors" aria-label="Start Tracking">Start Tracking</button>
                         </div>
-                        <button id="nextStepBtn" class="bg-indigo-600 hover:bg-indigo-700 text-white font-medium py-2 px-5 rounded-lg transition-colors" aria-label="Next step">Next</button>
+                        <button id="nextStepBtn" class="bg-blue-600 hover:bg-blue-700 text-white font-medium py-2 px-5 rounded-lg transition-colors" aria-label="Next step">Next</button>
                     </div>
                 </div>
             </div>
 
             <div id="trackingPage" class="p-5 hidden">
                 <div class="flex justify-between items-center mb-6">
-                    <button class="backBtn text-indigo-600 p-1 rounded-full hover:bg-indigo-100" aria-label="Go back to dashboard">
+                    <button class="backBtn text-blue-600 p-1 rounded-full hover:bg-blue-100" aria-label="Go back to dashboard">
                         <svg xmlns="http://www.w3.org/2000/svg" class="h-6 w-6" fill="none" viewBox="0 0 24 24" stroke="currentColor"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M10 19l-7-7m0 0l7-7m-7 7h18" /></svg>
                     </button>
                     <h2 class="text-xl font-bold text-slate-700">Blood Sugar Tracking</h2>
                     <div class="w-6"></div>
                 </div>
 
-                <div class="bg-white rounded-xl p-4 shadow-lg mb-6 border border-indigo-100">
+                <div class="bg-white rounded-xl p-4 shadow-lg mb-6 border border-blue-100">
                     <h3 class="text-lg font-semibold text-slate-700 mb-1">Add New Reading</h3>
                     <p class="text-xs text-gray-500 mb-4" id="currentDateReading"></p>
                     
                     <div class="mb-4">
                         <label class="block text-sm font-medium text-slate-700 mb-2">Select Time Slot:</label>
                         <div class="grid grid-cols-3 gap-2">
-                            <button class="time-slot p-2 rounded-md text-sm hover:bg-indigo-50" aria-label="Select Fasting time slot">Fasting</button>
-                            <button class="time-slot p-2 rounded-md text-sm hover:bg-indigo-50" aria-label="Select Pre-Lunch time slot">Pre-Lunch</button>
-                            <button class="time-slot p-2 rounded-md text-sm hover:bg-indigo-50" aria-label="Select Post-Lunch time slot">Post-Lunch</button>
-                            <button class="time-slot p-2 rounded-md text-sm hover:bg-indigo-50" aria-label="Select Pre-Dinner time slot">Pre-Dinner</button>
-                            <button class="time-slot p-2 rounded-md text-sm hover:bg-indigo-50" aria-label="Select Post-Dinner time slot">Post-Dinner</button>
-                            <button class="time-slot p-2 rounded-md text-sm hover:bg-indigo-50" aria-label="Select 03:00 AM time slot">03:00 AM</button>
+                            <button class="time-slot p-2 rounded-md text-sm hover:bg-blue-50" aria-label="Select Fasting time slot">Fasting</button>
+                            <button class="time-slot p-2 rounded-md text-sm hover:bg-blue-50" aria-label="Select Pre-Lunch time slot">Pre-Lunch</button>
+                            <button class="time-slot p-2 rounded-md text-sm hover:bg-blue-50" aria-label="Select Post-Lunch time slot">Post-Lunch</button>
+                            <button class="time-slot p-2 rounded-md text-sm hover:bg-blue-50" aria-label="Select Pre-Dinner time slot">Pre-Dinner</button>
+                            <button class="time-slot p-2 rounded-md text-sm hover:bg-blue-50" aria-label="Select Post-Dinner time slot">Post-Dinner</button>
+                            <button class="time-slot p-2 rounded-md text-sm hover:bg-blue-50" aria-label="Select 03:00 AM time slot">03:00 AM</button>
                             <button class="time-slot time-slot-hypo col-span-3 p-2 rounded-md text-sm bg-red-50 hover:bg-red-100 text-red-700 border-red-300" aria-label="Select Hypoglycemic Symptoms time slot">Hypoglycemic Symptoms</button>
                         </div>
                     </div>
+
                     <div class="mb-4">
                         <label for="bsSlider" class="block text-sm font-medium text-slate-700 mb-2">Blood Sugar Value (mg/dL):</label>
                         <div class="flex items-center space-x-3">
@@ -337,12 +330,13 @@
                             <input type="range" min="40" max="400" value="100" class="slider flex-1" id="bsSlider" aria-label="Blood sugar value slider">
                             <span class="text-xs text-gray-500">400</span>
                         </div>
-                        <p class="text-center text-xl font-bold text-indigo-600 mt-2" id="bsValueDisplay">100 mg/dL</p>
+                        <p class="text-center text-xl font-bold text-blue-600 mt-2" id="bsValueDisplay">100 mg/dL</p>
                     </div>
-                    <button id="saveReadingBtn" class="w-full bg-indigo-600 hover:bg-indigo-700 text-white font-bold py-3 px-4 rounded-lg shadow-sm transition duration-300" aria-label="Save blood sugar reading">Save Reading</button>
+                    <button id="saveReadingBtn" class="w-full bg-blue-600 hover:bg-blue-700 text-white font-bold py-3 px-4 rounded-lg shadow-sm transition duration-300" aria-label="Save blood sugar reading">Save Reading</button>
                 </div>
-
+                
                 <hr class="my-8 border-slate-200">
+
 
                 <div class="bg-white rounded-xl p-4 shadow-lg mb-6 border border-slate-100">
                     <h3 class="text-lg font-semibold text-slate-700 mb-3">Weekly Overview</h3>
@@ -350,649 +344,525 @@
                     <div class="h-64 mb-4"><canvas id="weeklySugarChart" aria-label="Weekly blood sugar trend chart"></canvas></div>
                     <div class="grid grid-cols-3 gap-2 text-center mb-4 text-sm">
                         <div><p class="text-xs text-gray-500">Avg Sugar</p><p id="avgSugar" class="font-bold text-slate-700">---</p></div>
-                        <div><p class="text-xs text-gray-500">Lowest</p><p id="lowestSugar" class="font-bold text-indigo-600">---</p></div>
+                        <div><p class="text-xs text-gray-500">Lowest</p><p id="lowestSugar" class="font-bold text-blue-600">---</p></div>
                         <div><p class="text-xs text-gray-500">Highest</p><p id="highestSugar" class="font-bold text-red-600">---</p></div>
                     </div>
                     <h4 class="text-md font-semibold text-slate-600 mb-1">Time In Range (70-180 mg/dL)</h4>
                     <div class="time-in-range-chart mb-1" aria-label="Time in range indicator"><div id="tirBarGreen" class="bg-green-500" title="In Range"></div><div id="tirBarYellowLow" class="bg-yellow-400" title="Low"></div><div id="tirBarRedLow" class="bg-red-500" title="Very Low"></div><div id="tirBarYellowHigh" class="bg-yellow-400" title="High"></div><div id="tirBarRedHigh" class="bg-red-500" title="Very High"></div></div>
                     <p class="text-xs text-gray-500 mb-3">In Range: <span id="tirPercentage">--%</span></p>
-                    <h4 class="text-md font-semibold text-slate-600 mb-1">Glucose Variability</h4>
-                    <p class="text-xs text-gray-500 mb-3">CV: <span id="glucoseVariability">--%</span> (Target: &lt;36%)</p>
+                     <h4 class="text-md font-semibold text-slate-600 mb-1">Glucose Variability</h4>
+                     <p class="text-xs text-gray-500 mb-3">CV: <span id="glucoseVariability">--%</span> (Target: &lt;36%)</p>
                 </div>
-
-                <div class="bg-white rounded-xl p-4 shadow-lg mb-6 border border-slate-100">
+                
+                 <div class="bg-white rounded-xl p-4 shadow-lg mb-6 border border-slate-100">
                     <h3 class="text-lg font-semibold text-slate-700 mb-3">HbA1c Levels</h3>
                     <div class="flex justify-around text-center">
-                        <div><p class="text-sm text-gray-500">Latest</p><p id="latestA1c" class="text-xl font-bold text-indigo-600">6.8%</p><p class="text-xs text-gray-400">May 15, 2025</p></div>
+                        <div><p class="text-sm text-gray-500">Latest</p><p id="latestA1c" class="text-xl font-bold text-blue-600">6.8%</p><p class="text-xs text-gray-400">May 15, 2025</p></div>
                         <div><p class="text-sm text-gray-500">Previous</p><p id="previousA1c" class="text-xl font-bold text-slate-500">7.2%</p><p class="text-xs text-gray-400">Feb 10, 2025</p></div>
                     </div>
                 </div>
 
                 <div class="bg-white rounded-xl p-4 shadow-lg mb-6 border border-slate-100">
-                    <h3 class="text-lg font-semibold text-slate-700 mb-3">Activity</h3>
-                    <p class="text-sm text-slate-600 mb-2">Daily Steps: <span id="dailySteps" class="font-bold">---</span></p>
-                    <button class="w-full bg-green-500 hover:bg-green-600 text-white font-medium py-2 px-4 rounded-lg text-sm flex items-center justify-center" onclick="alert('Placeholder: This would connect to Google Fit or allow manual entry.')" aria-label="Connect to Google Fit or add steps manually">
+                     <h3 class="text-lg font-semibold text-slate-700 mb-3">Activity</h3>
+                     <p class="text-sm text-slate-600 mb-2">Daily Steps: <span id="dailySteps" class="font-bold">---</span></p>
+                     <button class="w-full bg-green-500 hover:bg-green-600 text-white font-medium py-2 px-4 rounded-lg text-sm flex items-center justify-center" onclick="alert('Placeholder: This would connect to Google Fit or allow manual entry.')" aria-label="Connect to Google Fit or add steps manually">
                         <img src="https://img.icons8.com/color/24/000000/google-fit.png" alt="Google Fit Icon" class="inline mr-2 h-5 w-5"/>Connect to Google Fit / Add Steps
                     </button>
                 </div>
             </div>
 
-            <div id="rewardsPage" class="p-5 hidden">
+            <div id="rewardsPage" class="p-5 hidden bg-yellow-50">
                 <div class="flex justify-between items-center mb-6">
-                    <button class="backBtn text-indigo-600 p-1 rounded-full hover:bg-indigo-100" aria-label="Go back to dashboard">
+                    <button class="backBtn text-yellow-700 p-1 rounded-full hover:bg-yellow-100" aria-label="Go back to dashboard">
                         <svg xmlns="http://www.w3.org/2000/svg" class="h-6 w-6" fill="none" viewBox="0 0 24 24" stroke="currentColor"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M10 19l-7-7m0 0l7-7m-7 7h18" /></svg>
                     </button>
-                    <h2 class="text-xl font-bold text-slate-700">My Rewards</h2>
+                    <h2 class="text-2xl font-bold text-yellow-800">Your Rewards</h2>
                     <div class="w-6"></div>
                 </div>
 
-                <p class="text-center text-slate-600 mb-6">Collect coins by completing learning modules and tracking your progress!</p>
+                <div class="text-center mb-6 p-4 bg-white rounded-xl shadow-xl">
+                    <img src="https://img.icons8.com/plasticine/100/000000/trophy.png" alt="Trophy Illustration" class="mx-auto h-24 w-24 mb-3"/>
+                    <h3 class="text-xl font-semibold text-yellow-700 mb-1">Keep Up the Great Work, Alex!</h3>
+                    <p class="text-slate-600 text-sm">Your dedication is inspiring. Continue learning and tracking to unlock more rewards!</p>
+                </div>
                 
-                <div class="grid grid-cols-2 gap-4">
-                    <div class="reward-card bg-white rounded-xl p-4 shadow-lg text-center border border-slate-200" data-unlocked="true" id="rewardCard1">
-                        <img src="https://img.icons8.com/fluency/64/000000/coin.png" alt="Copper Coin" class="mx-auto mb-2 h-16 w-16"/>
-                        <h4 class="font-semibold text-slate-700">Copper Coin</h4>
-                        <p class="text-xs text-slate-500">Complete Initial Module</p>
-                        <span class="text-sm text-amber-600 font-bold mt-2 inline-block" id="rewardStatus1">Unlocked!</span>
+                <div class="grid grid-cols-2 gap-4 mb-6">
+                    <div id="rewardCopper" class="reward-card bg-white p-4 rounded-xl shadow-md text-center border-2 border-transparent opacity-60 data-[unlocked=true]:opacity-100 data-[unlocked=true]:border-yellow-600 data-[unlocked=true]:bg-yellow-100" data-unlocked="false">
+                        <img src="https://img.icons8.com/officel/80/000000/copper-ore.png" alt="Copper Coin" class="mx-auto h-16 w-16 mb-2 "/>
+                        <h4 class="font-semibold text-yellow-700">Copper Coin</h4>
+                        <p class="text-xs text-slate-500">Complete first module</p>
                     </div>
-
-                    <div class="reward-card bg-white rounded-xl p-4 shadow-lg text-center border border-slate-200 opacity-70" data-unlocked="false" id="rewardCard2">
-                        <img src="https://img.icons8.com/ios/64/000000/silver-coin.png" alt="Silver Coin (Locked)" class="mx-auto mb-2 h-16 w-16 grayscale opacity-50"/>
-                        <h4 class="font-semibold text-slate-700">Silver Coin</h4>
-                        <p class="text-xs text-slate-500">Track 7 days of BS readings</p>
-                        <span class="text-sm text-slate-500 font-bold mt-2 inline-block" id="rewardStatus2">Locked</span>
+                    <div id="rewardSilver" class="reward-card bg-white p-4 rounded-xl shadow-md text-center border-2 border-transparent opacity-60 data-[unlocked=true]:opacity-100 data-[unlocked=true]:border-gray-500 data-[unlocked=true]:bg-gray-100" data-unlocked="false">
+                        <img src="https://img.icons8.com/officel/80/000000/silver-ore.png" alt="Silver Coin" class="mx-auto h-16 w-16 mb-2 "/>
+                        <h4 class="font-semibold text-gray-600">Silver Coin</h4>
+                        <p class="text-xs text-slate-500">Track 7 days</p>
                     </div>
-
-                    <div class="reward-card bg-white rounded-xl p-4 shadow-lg text-center border border-slate-200 opacity-70" data-unlocked="false" id="rewardCard3">
-                        <img src="https://img.icons8.com/ios/64/000000/gold-bars.png" alt="Gold Bars (Locked)" class="mx-auto mb-2 h-16 w-16 grayscale opacity-50"/>
-                        <h4 class="font-semibold text-slate-700">Gold Bars</h4>
-                        <p class="text-xs text-slate-500">Complete all learning modules</p>
-                        <span class="text-sm text-slate-500 font-bold mt-2 inline-block" id="rewardStatus3">Locked</span>
+                    <div id="rewardGold" class="reward-card bg-white p-4 rounded-xl shadow-md text-center border-2 border-transparent opacity-60 data-[unlocked=true]:opacity-100 data-[unlocked=true]:border-amber-500 data-[unlocked=true]:bg-amber-100" data-unlocked="false">
+                        <img src="https://img.icons8.com/officel/80/000000/gold-ore.png" alt="Gold Coin" class="mx-auto h-16 w-16 mb-2 "/>
+                        <h4 class="font-semibold text-amber-600">Gold Coin</h4>
+                        <p class="text-xs text-slate-500">30 days consistent</p>
                     </div>
-
-                    <div class="reward-card bg-white rounded-xl p-4 shadow-lg text-center border border-slate-200 opacity-70" data-unlocked="false" id="rewardCard4">
-                        <img src="https://img.icons8.com/ios/64/000000/diamond.png" alt="Diamond (Locked)" class="mx-auto mb-2 h-16 w-16 grayscale opacity-50"/>
-                        <h4 class="font-semibold text-slate-700">Diamond</h4>
-                        <p class="text-xs text-slate-500">Achieve 80% TIR for 4 weeks</p>
-                        <span class="text-sm text-slate-500 font-bold mt-2 inline-block" id="rewardStatus4">Locked</span>
+                    <div id="rewardDiamond" class="reward-card bg-white p-4 rounded-xl shadow-md text-center border-2 border-transparent opacity-60 data-[unlocked=true]:opacity-100 data-[unlocked=true]:border-blue-500 data-[unlocked=true]:bg-blue-100" data-unlocked="false">
+                        <img src="https://img.icons8.com/officel/80/000000/diamond.png" alt="Diamond Gem" class="mx-auto h-16 w-16 mb-2"/>
+                        <h4 class="font-semibold text-blue-600">Diamond Gem</h4>
+                        <p class="text-xs text-slate-500">Mastered management!</p>
                     </div>
                 </div>
+                 <div class="alert-message alert-info bg-green-50 border-green-500 text-green-700">
+                    <h4 class="font-bold">Special Recognition!</h4>
+                    <p>Show your earned rewards (especially Gold & Diamond) to your Doctor for a personalized gift and discussion about your excellent progress!</p>
+                </div>
             </div>
-
-            <div id="hypoGuidePage" class="p-5 hidden">
-                <div class="flex justify-between items-center mb-6">
-                    <button class="backBtn text-indigo-600 p-1 rounded-full hover:bg-indigo-100" aria-label="Go back to dashboard">
-                        <svg xmlns="http://www.w3.org/2000/svg" class="h-6 w-6" fill="none" viewBox="0 0 24 24" stroke="currentColor"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M10 19l-7-7m0 0l7-7m-7 7h18" /></svg>
+            
+            <div id="settingsPage" class="p-5 hidden">
+                 <div class="flex justify-between items-center mb-6">
+                    <button class="backBtn text-blue-600 p-1 rounded-full hover:bg-blue-100" aria-label="Go back to dashboard">
+                         <svg xmlns="http://www.w3.org/2000/svg" class="h-6 w-6" fill="none" viewBox="0 0 24 24" stroke="currentColor"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M10 19l-7-7m0 0l7-7m-7 7h18" /></svg>
                     </button>
-                    <h2 class="text-xl font-bold text-slate-700">Hypoglycemia Guide</h2>
+                    <h2 class="text-xl font-bold text-slate-700">Settings</h2>
                     <div class="w-6"></div>
                 </div>
 
-                <div class="bg-white rounded-xl p-4 shadow-lg mb-6 border border-slate-100">
-                    <h3 class="text-lg font-semibold text-red-700 mb-3 flex items-center"><svg xmlns="http://www.w3.org/2000/svg" class="h-6 w-6 mr-2 text-red-500" fill="none" viewBox="0 0 24 24" stroke="currentColor"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 9v2m0 4h.01m-6.938 4h13.856c1.54 0 2.502-1.667 1.732-3L13.732 4c-.77-1.333-2.694-1.333-3.464 0L3.34 16c-.77 1.333.192 3 1.732 3z" /></svg>What is Hypoglycemia?</h3>
-                    <p class="text-slate-600 text-sm mb-4">Hypoglycemia, or low blood sugar, occurs when your blood glucose level drops too low (typically below 70 mg/dL). It needs immediate attention.</p>
-                </div>
-
-                <div class="bg-white rounded-xl p-4 shadow-lg mb-6 border border-slate-100">
-                    <h3 class="text-lg font-semibold text-red-700 mb-3 flex items-center"><img src="https://img.icons8.com/fluency/30/000000/symptom.png" alt="Symptoms Icon" class="mr-2"/>Common Symptoms</h3>
-                    <ul class="list-disc list-inside text-slate-600 text-sm space-y-1">
-                        <li>Shakiness or tremors</li>
-                        <li>Sweating and chills</li>
-                        <li>Anxiety or nervousness</li>
-                        <li>Irritability or impatience</li>
-                        <li>Confusion or disorientation</li>
-                        <li>Dizziness or lightheadedness</li>
-                        <li>Hunger</li>
-                        <li>Nausea</li>
-                        <li>Blurred vision</li>
-                        <li>Headache</li>
-                        <li>Weakness or fatigue</li>
-                        <li>Difficulty concentrating</li>
-                    </ul>
-                    <div class="alert-message alert-warning mt-4">
-                        <p class="font-bold">Severe Hypoglycemia:</p>
-                        <p>Can lead to seizures, unconsciousness, or coma. Seek immediate medical help if this occurs.</p>
-                    </div>
-                </div>
-
-                <div class="bg-white rounded-xl p-4 shadow-lg mb-6 border border-slate-100">
-                    <h3 class="text-lg font-semibold text-red-700 mb-3 flex items-center"><svg xmlns="http://www.w3.org/2000/svg" class="h-6 w-6 mr-2 text-red-500" fill="none" viewBox="0 0 24 24" stroke="currentColor"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M13 10V3L4 14h7v7l9-11h-7z" /></svg>The 15-15 Rule (for mild-moderate hypo)</h3>
-                    <p class="text-slate-600 text-sm mb-3">If your blood sugar is low (typically below 70 mg/dL) and you have symptoms:</p>
-                    <ul class="list-decimal list-inside text-slate-600 text-sm space-y-2">
-                        <li>Consume 15 grams of fast-acting carbohydrate (e.g., 4 glucose tablets, 1/2 cup fruit juice or regular soda, 1 tablespoon honey or sugar).</li>
-                        <li>Wait 15 minutes.</li>
-                        <li>Recheck your blood sugar.</li>
-                        <li>If it's still low, repeat steps 1-3.</li>
-                        <li>Once your blood sugar is back to target, eat a meal or snack if your next meal is more than an hour away.</li>
-                    </ul>
-                    <div class="pro-tip mt-4">
-                        <h4><img src="https://img.icons8.com/fluency/24/000000/lightbulb-idea.png" alt="Pro Tip Icon" class="inline h-5 w-5 mr-1"/>Important!</h4>
-                        <p>Avoid high-fat foods (chocolate, pastries) to treat lows, as fat slows sugar absorption.</p>
-                    </div>
-                </div>
-            </div>
-
-            <div id="learningPathPage" class="p-5 hidden">
-                <div class="flex justify-between items-center mb-6">
-                    <button class="backBtn text-indigo-600 p-1 rounded-full hover:bg-indigo-100" aria-label="Go back to dashboard">
-                        <svg xmlns="http://www.w3.org/2000/svg" class="h-6 w-6" fill="none" viewBox="0 0 24 24" stroke="currentColor"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M10 19l-7-7m0 0l7-7m-7 7h18" /></svg>
+                <div class="space-y-3">
+                    <a href="#" class="settings-option flex items-center p-4 bg-white rounded-lg shadow hover:shadow-md transition-all duration-200" aria-label="View or edit your profile">
+                        <img src="https://img.icons8.com/fluency/48/000000/user-male-circle.png" alt="Profile Icon" class="h-7 w-7 mr-4"/>
+                        <span class="text-slate-700 font-medium flex-grow">Profile</span>
+                        <svg xmlns="http://www.w3.org/2000/svg" class="h-5 w-5 text-gray-400" fill="none" viewBox="0 0 24 24" stroke="currentColor"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 5l7 7-7 7" /></svg>
+                    </a>
+                     <a href="#" class="settings-option flex items-center p-4 bg-white rounded-lg shadow hover:shadow-md transition-all duration-200" aria-label="Set your target ranges">
+                        <img src="https://img.icons8.com/fluency/48/000000/target.png" alt="Target Ranges Icon" class="h-7 w-7 mr-4"/>
+                        <span class="text-slate-700 font-medium flex-grow">Target Ranges</span>
+                        <svg xmlns="http://www.w3.org/2000/svg" class="h-5 w-5 text-gray-400" fill="none" viewBox="0 0 24 24" stroke="currentColor"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 5l7 7-7 7" /></svg>
+                    </a>
+                    <a href="#" class="settings-option flex items-center p-4 bg-white rounded-lg shadow hover:shadow-md transition-all duration-200" aria-label="Manage notifications and reminders">
+                        <img src="https://img.icons8.com/fluency/48/000000/appointment-reminders.png" alt="Notifications Icon" class="h-7 w-7 mr-4"/>
+                        <span class="text-slate-700 font-medium flex-grow">Notifications & Reminders</span>
+                        <svg xmlns="http://www.w3.org/2000/svg" class="h-5 w-5 text-gray-400" fill="none" viewBox="0 0 24 24" stroke="currentColor"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 5l7 7-7 7" /></svg>
+                    </a>
+                     <a href="#" class="settings-option flex items-center p-4 bg-white rounded-lg shadow hover:shadow-md transition-all duration-200" aria-label="View data and privacy settings">
+                        <img src="https://img.icons8.com/fluency/48/000000/data-protection.png" alt="Data Privacy Icon" class="h-7 w-7 mr-4"/>
+                        <span class="text-slate-700 font-medium flex-grow">Data & Privacy</span>
+                        <svg xmlns="http://www.w3.org/2000/svg" class="h-5 w-5 text-gray-400" fill="none" viewBox="0 0 24 24" stroke="currentColor"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 5l7 7-7 7" /></svg>
+                    </a>
+                    <button class="w-full mt-4 bg-red-500 hover:bg-red-600 text-white font-medium py-3 px-4 rounded-lg shadow-sm transition duration-300 flex items-center justify-center" aria-label="Log out of the application">
+                        <img src="https://img.icons8.com/fluency/48/000000/exit.png" alt="Logout Icon" class="h-6 w-6 mr-2"/>
+                        Log Out
                     </button>
-                    <h2 class="text-xl font-bold text-slate-700">My Learning Path</h2>
-                    <div class="w-6"></div>
-                </div>
-
-                <div class="bg-white rounded-xl p-4 shadow-lg mb-6 border border-slate-100">
-                    <h3 class="text-lg font-semibold text-indigo-700 mb-3">Completed Modules</h3>
-                    <ul class="list-none space-y-3">
-                        <li class="flex items-center text-slate-700">
-                            <svg xmlns="http://www.w3.org/2000/svg" class="h-6 w-6 text-green-500 mr-2" fill="none" viewBox="0 0 24 24" stroke="currentColor"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 12l2 2 4-4m6 2a9 9 0 11-18 0 9 9 0 0118 0z" /></svg>
-                            Initial Insulin Basics (Insulin, Dosing, Hypo Awareness, Site Rotation)
-                        </li>
-                    </ul>
-                    <hr class="my-4 border-slate-200">
-                    <h3 class="text-lg font-semibold text-indigo-700 mb-3">Upcoming Modules</h3>
-                    <ul class="list-none space-y-3">
-                        <li class="flex items-center text-slate-500">
-                            <svg xmlns="http://www.w3.org/2000/svg" class="h-6 w-6 text-slate-400 mr-2" fill="none" viewBox="0 0 24 24" stroke="currentColor"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 8v4l3 3m6-3a9 9 0 11-18 0 9 9 0 0118 0z" /></svg>
-                            Advanced Carbohydrate Counting <span class="text-xs ml-2">(Coming Soon)</span>
-                        </li>
-                        <li class="flex items-center text-slate-500">
-                            <svg xmlns="http://www.w3.org/2000/svg" class="h-6 w-6 text-slate-400 mr-2" fill="none" viewBox="0 0 24 24" stroke="currentColor"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 8v4l3 3m6-3a9 9 0 11-18 0 9 9 0 0118 0z" /></svg>
-                            Exercise and Insulin Management <span class="text-xs ml-2">(Coming Soon)</span>
-                        </li>
-                        <li class="flex items-center text-slate-500">
-                            <svg xmlns="http://www.w3.org/2000/svg" class="h-6 w-6 text-slate-400 mr-2" fill="none" viewBox="0 0 24 24" stroke="currentColor"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 8v4l3 3m6-3a9 9 0 11-18 0 9 9 0 0118 0z" /></svg>
-                            Sick Day Management <span class="text-xs ml-2">(Coming Soon)</span>
-                        </li>
-                    </ul>
                 </div>
             </div>
 
-        </div>
-
-        <footer class="fixed bottom-0 left-0 right-0 max-w-md mx-auto bg-white border-t border-slate-200 shadow-lg z-20">
-            <nav class="flex justify-around items-center h-16">
-                <button class="flex flex-col items-center text-indigo-600 font-medium text-xs active-nav-btn" data-target="dashboardPage" aria-label="Go to Dashboard">
-                    <svg xmlns="http://www.w3.org/2000/svg" class="h-6 w-6" fill="none" viewBox="0 0 24 24" stroke="currentColor"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M3 12l2-2m0 0l7-7 7 7M5 10v10a1 1 0 001 1h3m10-11l2 2m0 0l-7 7m7-7v10a1 1 0 01-1 1h-3m-6 0a1 1 0 001-1v-4a1 1 0 011-1h2a1 1 0 011 1v4a1 1 0 001 1m-6 0h6" /></svg>
-                    Dashboard
-                </button>
-                <button class="flex flex-col items-center text-slate-500 hover:text-indigo-600 font-medium text-xs" data-target="trackingPage" aria-label="Go to Tracking">
-                    <svg xmlns="http://www.w3.org/2000/svg" class="h-6 w-6" fill="none" viewBox="0 0 24 24" stroke="currentColor"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 19V6l12-3v13M9 19H5a2 2 0 01-2-2V7a2 2 0 012-2h4l2 2h4l2-2h4a2 2 0 012 2v10a2 2 0 01-2 2H9zm0 0V9" /></svg>
-                    Tracking
-                </button>
-                <button class="flex flex-col items-center text-slate-500 hover:text-indigo-600 font-medium text-xs" data-target="rewardsPage" aria-label="Go to Rewards">
-                    <svg xmlns="http://www.w3.org/2000/svg" class="h-6 w-6" fill="none" viewBox="0 0 24 24" stroke="currentColor"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M11.049 2.927c.3-.921 1.603-.921 1.902 0l1.519 4.674a1 1 0 00.95.69h4.915c.969 0 1.371 1.24.588 1.81l-3.976 2.888a1 1 0 00-.329 1.176l1.519 4.674c.3.921-.755 1.688-1.539 1.176l-3.976-2.888a1 1 0 00-1.176 0l-3.976 2.888c-.783.512-1.838-.255-1.539-1.176l1.519-4.674a1 1 0 00-.329-1.176l-3.976-2.888c-.784-.57-.381-1.81.588-1.81h4.915a1 1 0 00.95-.69l1.519-4.674z" /></svg>
-                    Rewards
-                </button>
-                <button class="flex flex-col items-center text-slate-500 hover:text-indigo-600 font-medium text-xs" data-target="settingsPage" aria-label="Go to Settings">
-                    <svg xmlns="http://www.w3.org/2000/svg" class="h-6 w-6" fill="none" viewBox="0 0 24 24" stroke="currentColor"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M10.325 4.317c.426-1.756 2.924-1.756 3.35 0a1.724 1.724 0 002.573 1.066c1.543-.94 3.31.826 2.37 2.37a1.724 1.724 0 001.065 2.572c1.756.426 1.756 2.924 0 3.35a1.724 1.724 0 00-1.066 2.573c.94 1.543-.826 3.31-2.37 2.37a1.724 1.724 0 00-2.572 1.065c-.426 1.756-2.924 1.756-3.35 0a1.724 1.724 0 00-2.573-1.066c-1.543.94-3.31-.826-2.37-2.37a1.724 1.724 0 00-1.065-2.572c-1.756-.426-1.756-2.924 0-3.35a1.724 1.724 0 001.066-2.573c-.94-1.543.826-3.31 2.37-2.37.564.342 1.233.553 1.943.553zm7.005 1.037a6.75 6.75 0 10-13.5 0 6.75 6.75 0 0013.5 0z" /></svg>
-                    Settings
-                </button>
-            </nav>
+        </div> <footer class="sticky bottom-0 left-0 right-0 bg-white border-t border-gray-200 shadow-t-lg z-20">
+            <div class="max-w-md mx-auto">
+                <div class="flex justify-around items-center relative">
+                    <button id="navDashboard" class="flex-1 py-3 text-center text-blue-600" aria-label="Go to Home page">
+                        <svg xmlns="http://www.w3.org/2000/svg" class="h-6 w-6 mx-auto mb-1" viewBox="0 0 20 20" fill="currentColor"><path d="M10.707 2.293a1 1 0 00-1.414 0l-7 7a1 1 0 001.414 1.414L4 10.414V17a1 1 0 001 1h2a1 1 0 001-1v-2a1 1 0 011-1h2a1 1 0 011 1v2a1 1 0 001 1h2a1 1 0 001-1v-6.586l.293.293a1 1 0 001.414-1.414l-7-7z" /></svg>
+                        <span class="text-xs font-medium">Home</span>
+                    </button>
+                    <button id="navTracking" class="flex-1 py-3 text-center text-gray-500 hover:text-blue-600" aria-label="Go to Tracking page">
+                         <svg xmlns="http://www.w3.org/2000/svg" class="h-6 w-6 mx-auto mb-1" viewBox="0 0 20 20" fill="currentColor"><path fill-rule="evenodd" d="M6 2a1 1 0 00-1 1v1H4a2 2 0 00-2 2v10a2 2 0 002 2h12a2 2 0 002-2V6a2 2 0 00-2-2h-1V3a1 1 0 10-2 0v1H7V3a1 1 0 00-1-1zm0 5a1 1 0 000 2h8a1 1 0 100-2H6z" clip-rule="evenodd" /></svg>
+                        <span class="text-xs font-medium">Tracking</span>
+                    </button>
+                    <button id="navRewards" class="flex-1 py-3 text-center text-gray-500 hover:text-blue-600" aria-label="Go to Rewards page">
+                         <img src="https://img.icons8.com/fluency/48/000000/medal2.png" alt="Rewards Icon" class="h-6 w-6 mx-auto mb-1"/>
+                        <span class="text-xs font-medium">Rewards</span>
+                    </button>
+                    <button id="navSettings" class="flex-1 py-3 text-center text-gray-500 hover:text-blue-600" aria-label="Go to Settings page">
+                         <svg xmlns="http://www.w3.org/2000/svg" class="h-6 w-6 mx-auto mb-1" viewBox="0 0 20 20" fill="currentColor"><path fill-rule="evenodd" d="M11.49 3.17c-.38-1.56-2.6-1.56-2.98 0a1.532 1.532 0 01-2.286.948c-1.372-.836-2.942.734-2.106 2.106.54.886.061 2.042-.947 2.287-1.561.379-1.561 2.6 0 2.978a1.532 1.532 0 01.947 2.287c-.835 1.372.734 2.942 2.106 2.106a1.532 1.532 0 012.287.947c.379 1.561 2.6 1.561 2.978 0a1.533 1.533 0 012.287-.947c1.372.835 2.942-.734 2.106-2.106a1.533 1.533 0 01.947-2.287c1.561-.379 1.561-2.6 0-2.978a1.532 1.532 0 01-.947-2.287c.835-1.372-.734-2.942-2.106-2.106a1.532 1.532 0 01-2.287-.947zM10 13a3 3 0 100-6 3 3 0 000 6z" clip-rule="evenodd" /></svg>
+                        <span class="text-xs font-medium">Settings</span>
+                    </button>
+                    <div id="tabIndicator" class="absolute bottom-0 h-1 bg-blue-600 tab-indicator" style="width: 25%; left: 0%;"></div>
+                </div>
+            </div>
         </footer>
     </div>
 
-    <div id="settingsPage" class="p-5 hidden">
-        <div class="flex justify-between items-center mb-6">
-            <button class="backBtn text-indigo-600 p-1 rounded-full hover:bg-indigo-100" aria-label="Go back to dashboard">
-                <svg xmlns="http://www.w3.org/2000/svg" class="h-6 w-6" fill="none" viewBox="0 0 24 24" stroke="currentColor"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M10 19l-7-7m0 0l7-7m-7 7h18" /></svg>
-            </button>
-            <h2 class="text-xl font-bold text-slate-700">Settings</h2>
-            <div class="w-6"></div>
-        </div>
+<script>
+document.addEventListener('DOMContentLoaded', () => {
+    const dashboardPage = document.getElementById('dashboardPage');
+    const learningModulePage = document.getElementById('learningModulePage');
+    const trackingPage = document.getElementById('trackingPage');
+    const rewardsPage = document.getElementById('rewardsPage');
+    const settingsPage = document.getElementById('settingsPage');
+    
+    const startLearningBtn = document.getElementById('startLearningBtn');
+    const dashboardToRewardsBtn = document.getElementById('dashboardToRewardsBtn');
+    const navFeatureBtns = document.querySelectorAll('.nav-feature-btn');
 
-        <div class="bg-white rounded-xl p-4 shadow-lg mb-6 border border-slate-100">
-            <h3 class="text-lg font-semibold text-slate-700 mb-3">General Settings</h3>
-            <div class="space-y-4">
-                <div class="settings-option flex justify-between items-center p-3 rounded-md cursor-pointer border border-slate-200">
-                    <span class="text-slate-700">Notifications</span>
-                    <label class="switch">
-                        <input type="checkbox" checked>
-                        <span class="slider round"></span>
-                    </label>
-                </div>
-                <div class="settings-option flex justify-between items-center p-3 rounded-md cursor-pointer border border-slate-200">
-                    <span class="text-slate-700">Dark Mode</span>
-                    <label class="switch">
-                        <input type="checkbox">
-                        <span class="slider round"></span>
-                    </label>
-                </div>
-                <div class="settings-option flex justify-between items-center p-3 rounded-md cursor-pointer border border-slate-200">
-                    <span class="text-slate-700">Units (mg/dL vs mmol/L)</span>
-                    <span class="text-indigo-600 font-medium">mg/dL</span>
-                </div>
-            </div>
-        </div>
+    const backBtns = document.querySelectorAll('.backBtn');
+    const navDashboard = document.getElementById('navDashboard');
+    const navTracking = document.getElementById('navTracking');
+    const navRewards = document.getElementById('navRewards');
+    const navSettings = document.getElementById('navSettings');
+    const tabIndicator = document.getElementById('tabIndicator');
 
-        <div class="bg-white rounded-xl p-4 shadow-lg mb-6 border border-slate-100">
-            <h3 class="text-lg font-semibold text-slate-700 mb-3">Account</h3>
-            <div class="space-y-4">
-                <button class="w-full text-left settings-option p-3 rounded-md cursor-pointer border border-slate-200 text-slate-700">
-                    Edit Profile
-                </button>
-                <button class="w-full text-left settings-option p-3 rounded-md cursor-pointer border border-slate-200 text-slate-700">
-                    Change Password
-                </button>
-                <button class="w-full text-left settings-option p-3 rounded-md cursor-pointer border border-slate-200 text-red-600 hover:bg-red-50">
-                    Logout
-                </button>
-            </div>
-        </div>
-    </div>
+    // Learning Module Elements
+    const moduleProgressBar = document.getElementById('moduleProgressBar');
+    const moduleSteps = Array.from(document.querySelectorAll('.module-step')); // Convert to Array
+    const prevStepBtn = document.getElementById('prevStepBtn');
+    const nextStepBtn = document.getElementById('nextStepBtn');
+    const moduleCompletionActions = document.getElementById('moduleCompletionActions');
+    
+    const goToDashboardAfterModuleBtn = document.getElementById('goToDashboardAfterModuleBtn');
+    const goToTrackingAfterModuleBtn = document.getElementById('goToTrackingAfterModuleBtn');
+    const insulinSelectionAlert = document.getElementById('insulinSelectionAlert');
+    const experiencedSymptomsLastWeekSelect = document.getElementById('experiencedSymptomsLastWeek');
+    const hypoFollowUpQuestionsDiv = document.getElementById('hypoFollowUpQuestions');
+    const hypoSnackAlert = document.getElementById('hypoSnackAlert');
+    const siteRotationButtons = document.querySelectorAll('.injection-site'); // Changed selector
+    const siteRotationHint = document.getElementById('siteRotationHint');
+    const currentSiteToClickSpan = document.getElementById('currentSiteToClick');
+    const resetRotationBtn = document.getElementById('resetRotationBtn');
+
+    let currentModuleStep = 0;
+    let moduleStarted = false; // Track if module has been started in this session
+    let moduleCompletedInSession = false;
+
+    let siteRotationOrder = 1;
+    const TOTAL_ROTATION_SITES = 8; // Number of sites in the diagram
+    let sitesClickedCorrectly = 0;
 
 
-    <script>
-        // --- Core Navigation Logic ---
-        const navButtons = document.querySelectorAll('footer .nav-feature-btn, .nav-feature-btn');
-        const backButtons = document.querySelectorAll('.backBtn');
-        const pages = ['dashboardPage', 'learningModulePage', 'trackingPage', 'rewardsPage', 'hypoGuidePage', 'learningPathPage', 'settingsPage'];
+    // Tracking Page Elements
+    const bsSlider = document.getElementById('bsSlider');
+    const bsValueDisplay = document.getElementById('bsValueDisplay');
+    const timeSlotButtons = document.querySelectorAll('#trackingPage .time-slot');
+    const saveReadingBtn = document.getElementById('saveReadingBtn');
+    const currentDateReadingEl = document.getElementById('currentDateReading');
+    const weeklySugarChartCtx = document.getElementById('weeklySugarChart')?.getContext('2d');
+    let sessionEntries = 0; // For mock compliance
+    const MOCK_WEEKLY_TARGET_ENTRIES = 14; // e.g., 2 entries per day for a week
+    
+    // Daily Tip
+    const dailyTips = [
+        "Check your blood sugar before physical activity. If low, eat a snack.",
+        "Rotate injection sites to prevent skin problems like lipohypertrophy.",
+        "Keep fast-acting carbs with you for hypoglycemia.",
+        "Store unopened insulin in the fridge. Opened insulin can be at room temp (check label).",
+        "Inspect your feet daily for cuts or sores. Report issues to your doctor.",
+        "Stay hydrated! Water is important for overall health.",
+        "Plan your meals to help manage blood sugar levels effectively.",
+        "Regular exercise can improve insulin sensitivity. Discuss with your doctor.",
+        "Don't hesitate to ask your healthcare team questions about your diabetes management."
+    ];
+    document.getElementById('dailyTipText').textContent = dailyTips[Math.floor(Math.random() * dailyTips.length)];
 
-        function showPage(pageId) {
-            pages.forEach(id => {
-                const page = document.getElementById(id);
-                if (page) {
-                    page.classList.add('hidden');
-                    // Reset scroll for hidden pages
-                    if (page.classList.contains('flex-col')) { // Learning module is flex-col
-                        page.querySelector('#moduleStepContainer').scrollTop = 0;
-                    } else {
-                        page.scrollTop = 0;
-                    }
-                }
-            });
-            const targetPage = document.getElementById(pageId);
-            if (targetPage) {
-                targetPage.classList.remove('hidden');
-                // Special handling for module page to show flex-box
-                if (pageId === 'learningModulePage') {
-                    targetPage.classList.add('flex', 'items-center', 'justify-center');
-                } else {
-                    targetPage.classList.remove('flex', 'items-center', 'justify-center');
-                }
+
+    const pages = [dashboardPage, trackingPage, rewardsPage, settingsPage]; 
+    const navButtons = [navDashboard, navTracking, navRewards, navSettings];
+    let currentPageElement = dashboardPage;
+
+    function showPage(pageToShow) {
+        pages.forEach(page => page.classList.add('hidden'));
+        pageToShow.classList.remove('hidden');
+        currentPageElement = pageToShow;
+        updateNavIndicator();
+        window.scrollTo(0,0); 
+    }
+
+    function updateNavIndicator() {
+        let activeTabIndex = 0;
+        if (currentPageElement === dashboardPage) activeTabIndex = 0;
+        else if (currentPageElement === trackingPage) activeTabIndex = 1;
+        else if (currentPageElement === rewardsPage) activeTabIndex = 2;
+        else if (currentPageElement === settingsPage) activeTabIndex = 3;
+
+        navButtons.forEach((btn, index) => {
+            if (btn) {
+                btn.classList.toggle('text-blue-600', index === activeTabIndex);
+                btn.classList.toggle('text-gray-500', index !== activeTabIndex);
             }
+        });
+        if (tabIndicator) tabIndicator.style.left = `${activeTabIndex * 25}%`;
+    }
 
-            // Update active state in footer nav
-            document.querySelectorAll('footer .nav-feature-btn').forEach(btn => {
-                if (btn.dataset.target === pageId) {
-                    btn.classList.add('active-nav-btn', 'text-indigo-600');
-                    btn.classList.remove('text-slate-500');
-                } else {
-                    btn.classList.remove('active-nav-btn', 'text-indigo-600');
-                    btn.classList.add('text-slate-500');
-                }
-            });
+    showPage(dashboardPage);
+
+    if (navDashboard) navDashboard.addEventListener('click', () => showPage(dashboardPage));
+    if (navTracking) navTracking.addEventListener('click', () => showPage(trackingPage));
+    if (navRewards) navRewards.addEventListener('click', () => showPage(rewardsPage));
+    if (navSettings) navSettings.addEventListener('click', () => showPage(settingsPage));
+    if (dashboardToRewardsBtn) dashboardToRewardsBtn.addEventListener('click', () => showPage(rewardsPage));
+    
+    navFeatureBtns.forEach(btn => {
+        btn.addEventListener('click', () => {
+            const target = btn.dataset.target;
+            if (target === 'learningPath' || target === 'injectionSimulator' || target === 'hypoGuide') {
+                openLearningModule(); 
+            }
+        });
+    });
+
+    backBtns.forEach(btn => {
+        btn.addEventListener('click', () => showPage(dashboardPage));
+    });
+
+    // Learning Module Logic
+    function openLearningModule(startStep = 0) {
+        moduleStarted = true;
+        updateStartLearningButton();
+        currentModuleStep = startStep;
+        resetSiteRotationVisuals(); // Reset if module is reopened
+        updateModuleView();
+        learningModulePage.classList.remove('hidden');
+        learningModulePage.classList.add('flex'); 
+    }
+
+    function closeLearningModule() {
+        learningModulePage.classList.add('hidden');
+        learningModulePage.classList.remove('flex');
+    }
+    
+    function updateStartLearningButton() {
+        if(moduleCompletedInSession) {
+            startLearningBtn.innerHTML = `<svg xmlns="http://www.w3.org/2000/svg" class="h-5 w-5 mr-2" viewBox="0 0 20 20" fill="currentColor"><path fill-rule="evenodd" d="M4 2a1 1 0 011 1v2.101a7.002 7.002 0 0111.601 2.566 1 1 0 11-1.885.666A5.002 5.002 0 005.999 7H9a1 1 0 010 2H4a1 1 0 01-1-1V3a1 1 0 011-1zm.008 9.057a1 1 0 011.276.61A5.002 5.002 0 0014.001 13H11a1 1 0 110-2h5a1 1 0 011 1v5a1 1 0 11-2 0v-2.101a7.002 7.002 0 01-11.601-2.566 1 1 0 01.61-1.276z" clip-rule="evenodd" /></svg> Review Module`;
+            startLearningBtn.classList.remove('pulse-animation');
+        } else if (moduleStarted) {
+            startLearningBtn.innerHTML = `<svg xmlns="http://www.w3.org/2000/svg" class="h-5 w-5 mr-2" viewBox="0 0 20 20" fill="currentColor"><path fill-rule="evenodd" d="M7.293 14.707a1 1 0 010-1.414L10.586 10 7.293 6.707a1 1 0 011.414-1.414l4 4a1 1 0 010 1.414l-4 4a1 1 0 01-1.414 0z" clip-rule="evenodd" /></svg> Continue Learning`;
+            startLearningBtn.classList.remove('pulse-animation');
+        } else {
+             startLearningBtn.innerHTML = `<svg xmlns="http://www.w3.org/2000/svg" class="h-5 w-5 mr-2" viewBox="0 0 20 20" fill="currentColor"><path fill-rule="evenodd" d="M10 18a8 8 0 100-16 8 8 0 000 16zm3.707-8.707l-3-3a1 1 0 00-1.414 0l-3 3a1 1 0 001.414 1.414L9 9.414V13a1 1 0 102 0V9.414l1.293 1.293a1 1 0 001.414-1.414z" clip-rule="evenodd" /></svg> Start Learning Now`;
+             startLearningBtn.classList.add('pulse-animation');
         }
+    }
 
-        navButtons.forEach(button => {
-            button.addEventListener('click', () => {
-                const targetPageId = button.dataset.target;
-                if (targetPageId) {
-                    showPage(targetPageId);
-                }
-            });
+
+    function updateModuleView() {
+        const totalSteps = moduleSteps.length;
+        moduleSteps.forEach((step, index) => {
+            step.classList.toggle('active', index === currentModuleStep);
         });
+        
+        // Update progress bar
+        const progressPercentage = totalSteps > 0 ? ((currentModuleStep + 1) / totalSteps) * 100 : 0;
+        moduleProgressBar.style.width = `${progressPercentage}%`;
+        moduleProgressBar.setAttribute('aria-valuenow', progressPercentage);
 
-        backButtons.forEach(button => {
-            button.addEventListener('click', () => {
-                // Simple back to dashboard for now
-                showPage('dashboardPage');
-            });
-        });
 
-        // --- Patient Name Logic ---
-        document.addEventListener('DOMContentLoaded', () => {
-            const patientNameInput = document.getElementById('patientName');
-            const welcomeMessageEl = document.getElementById('welcomeMessage');
+        prevStepBtn.classList.toggle('hidden', currentModuleStep === 0);
+        
+        const isLastStep = currentModuleStep === totalSteps - 1;
+        nextStepBtn.classList.toggle('hidden', isLastStep);
+        moduleCompletionActions.classList.toggle('hidden', !isLastStep);
+        moduleCompletionActions.classList.toggle('flex', isLastStep); // Use flex for layout
 
-            // Load name from local storage
-            const savedName = localStorage.getItem('patientName');
-            if (savedName) {
-                patientNameInput.value = savedName;
-                welcomeMessageEl.textContent = `Welcome, ${savedName}! Your companion for insulin therapy success.`;
-            } else {
-                welcomeMessageEl.textContent = 'Your companion for insulin therapy success.';
+        if (currentModuleStep === 3) { // Site rotation step specific setup
+            if (sitesClickedCorrectly === 0) { // Only reset if not already in progress or completed
+                resetSiteRotationState();
             }
+            updateSiteRotationHint();
+        }
+    }
+    
+    if (startLearningBtn) startLearningBtn.addEventListener('click', () => openLearningModule());
+    
+    if (prevStepBtn) prevStepBtn.addEventListener('click', () => {
+        if (currentModuleStep > 0) {
+            currentModuleStep--;
+            updateModuleView();
+        }
+    });
 
-            // Save name on input change
-            patientNameInput.addEventListener('input', (event) => {
-                const name = event.target.value;
-                localStorage.setItem('patientName', name);
-                if (name) {
-                    welcomeMessageEl.textContent = `Welcome, ${name}! Your companion for insulin therapy success.`;
-                } else {
-                    welcomeMessageEl.textContent = 'Your companion for insulin therapy success.';
-                }
-            });
-        });
-
-
-        // --- Learning Module Logic ---
-        const startLearningBtn = document.getElementById('startLearningBtn');
-        const moduleStepContainer = document.getElementById('moduleStepContainer');
-        const moduleProgressBar = document.getElementById('moduleProgressBar');
-        const prevStepBtn = document.getElementById('prevStepBtn');
-        const nextStepBtn = document.getElementById('nextStepBtn');
-        const moduleCompletionActions = document.getElementById('moduleCompletionActions');
-        const goToDashboardAfterModuleBtn = document.getElementById('goToDashboardAfterModuleBtn');
-        const goToTrackingAfterModuleBtn = document.getElementById('goToTrackingAfterModuleBtn');
-
-        let currentModuleStep = 0;
-        const totalModuleSteps = 5; // Total steps from 1 to 5
-
-        startLearningBtn.addEventListener('click', () => {
-            currentModuleStep = 0; // Start at step 0 to allow 'Next' to go to step 1
-            showPage('learningModulePage');
-            updateModuleDisplay();
-        });
-
-        prevStepBtn.addEventListener('click', () => {
-            if (currentModuleStep > 0) {
-                currentModuleStep--;
-                updateModuleDisplay();
-            }
-        });
-
-        nextStepBtn.addEventListener('click', () => {
-            // Validate current step before proceeding
-            if (currentModuleStep === 0) { // On dashboard, clicking 'Start Learning Now'
+    if (nextStepBtn) nextStepBtn.addEventListener('click', () => {
+        if (validateCurrentStep()) {
+            if (currentModuleStep < moduleSteps.length - 1) {
                 currentModuleStep++;
-                updateModuleDisplay();
-                return;
-            }
-
-            if (validateCurrentModuleStep(currentModuleStep)) {
-                if (currentModuleStep < totalModuleSteps - 1) { // -1 because step 5 is the final completion step
-                    currentModuleStep++;
-                    updateModuleDisplay();
-                } else if (currentModuleStep === totalModuleSteps - 1) { // On the last content step, show completion actions
-                    currentModuleStep++; // Move to completion view
-                    updateModuleDisplay();
+                updateModuleView();
+                 if (currentModuleStep === moduleSteps.length - 1) { // Reached completion step
+                    moduleCompletedInSession = true;
+                    updateStartLearningButton(); // Update main dashboard button
+                    // Unlock Copper reward
+                    const copperReward = document.getElementById('rewardCopper');
+                    if (copperReward) {
+                        copperReward.dataset.unlocked = "true";
+                        copperReward.querySelector('img').classList.remove('opacity-50'); // Make image fully visible
+                    }
                 }
             }
-        });
-
-        goToDashboardAfterModuleBtn.addEventListener('click', () => {
-            showPage('dashboardPage');
-            sessionEntries = 0; // Reset mock entries for the next session
-            updateMockCompliance();
-        });
-
-        goToTrackingAfterModuleBtn.addEventListener('click', () => {
-            showPage('trackingPage');
-            sessionEntries = 0; // Reset mock entries for the next session
-            updateMockCompliance();
-        });
+        }
+    });
+    
+    if (goToDashboardAfterModuleBtn) goToDashboardAfterModuleBtn.addEventListener('click', () => { closeLearningModule(); showPage(dashboardPage); });
+    if (goToTrackingAfterModuleBtn) goToTrackingAfterModuleBtn.addEventListener('click', () => { closeLearningModule(); showPage(trackingPage); });
 
 
-        function updateModuleDisplay() {
-            // Hide all steps
-            document.querySelectorAll('.module-step').forEach(step => {
-                step.classList.remove('active');
-                step.style.display = 'none'; // Ensure display is none
+    const insulinTypeCheckboxes = document.querySelectorAll('#insulinTypes input[type="checkbox"]');
+    insulinTypeCheckboxes.forEach(checkbox => {
+        checkbox.addEventListener('change', () => {
+            let rapidCount = 0; let longCount = 0;
+            insulinTypeCheckboxes.forEach(cb => {
+                if (cb.checked) {
+                    if (['rapid', 'short'].includes(cb.dataset.category)) rapidCount++;
+                    if (['long', 'intermediate'].includes(cb.dataset.category)) longCount++;
+                }
             });
-
-            // Show current step
-            const currentStepElement = document.getElementById(`step${currentModuleStep + 1}InsulinInfo`) ||
-                                       document.getElementById(`step${currentModuleStep + 1}DosingSchedule`) ||
-                                       document.getElementById(`step${currentModuleStep + 1}HypoAwareness`) ||
-                                       document.getElementById(`step${currentModuleStep + 1}SiteRotation`) ||
-                                       document.getElementById(`step${currentModuleStep + 1}ModuleComplete`);
-
-            if (currentStepElement) {
-                currentStepElement.classList.add('active');
-                currentStepElement.style.display = 'block';
-                moduleStepContainer.scrollTop = 0; // Scroll to top of current step
-            }
-
-            // Update progress bar
-            const progress = (currentModuleStep / (totalModuleSteps - 1)) * 100;
-            moduleProgressBar.style.width = `${progress}%`;
-
-            // Button visibility
-            prevStepBtn.classList.toggle('hidden', currentModuleStep === 0);
-            nextStepBtn.classList.toggle('hidden', currentModuleStep === totalModuleSteps - 1); // Hide next if on completion screen
-            moduleCompletionActions.classList.toggle('hidden', currentModuleStep < totalModuleSteps - 1);
-        }
-
-        function validateCurrentModuleStep(step) {
-            let isValid = true;
-            switch (step) {
-                case 1: // Step 1: Insulin Info
-                    const insulinCheckboxes = document.querySelectorAll('#insulinTypes input[type="checkbox"]:checked');
-                    const insulinAlert = document.getElementById('insulinSelectionAlert');
-                    if (insulinCheckboxes.length === 0) {
-                        insulinAlert.textContent = "Please select at least one insulin type.";
-                        insulinAlert.classList.remove('hidden');
-                        isValid = false;
-                    } else {
-                        insulinAlert.classList.add('hidden');
-                    }
-                    break;
-                case 2: // Step 2: Dosing Schedule
-                    const rapidDosing = document.getElementById('rapidDosing').value;
-                    const longDosing = document.getElementById('longDosing').value;
-                    if (!rapidDosing || !longDosing) {
-                         alert("Please select your dosing timing for both rapid/short-acting and long-acting insulin.");
-                         isValid = false;
-                    }
-                    break;
-                case 3: // Step 3: Hypoglycemia Awareness
-                    const awareSymptoms = document.getElementById('awareSymptoms').value;
-                    const experiencedSymptomsLastWeek = document.getElementById('experiencedSymptomsLastWeek').value;
-                    if (!awareSymptoms || !experiencedSymptomsLastWeek) {
-                        alert("Please answer both questions about hypoglycemia awareness.");
-                        isValid = false;
-                    } else if (experiencedSymptomsLastWeek === 'yes') {
-                        const hypoBGLevel = document.getElementById('hypoBGLevel').value;
-                        const hypoDateTime = document.getElementById('hypoDateTime').value;
-                        if (!hypoBGLevel || !hypoDateTime) {
-                            alert("Please provide the blood sugar level and date/time of the hypoglycemic episode.");
-                            isValid = false;
-                        }
-                    }
-                    break;
-                case 4: // Step 4: Site Rotation (validation handled by click events on sites)
-                    if (currentSiteSequence.length < 8) {
-                        alert("Please click all 8 injection sites in order to complete this step.");
-                        isValid = false;
-                    }
-                    break;
-            }
-            return isValid;
-        }
-
-        // --- Step 3: Hypoglycemia Awareness follow-up questions ---
-        const experiencedSymptomsLastWeekSelect = document.getElementById('experiencedSymptomsLastWeek');
-        const hypoFollowUpQuestionsDiv = document.getElementById('hypoFollowUpQuestions');
-        const hypoSnackAlert = document.getElementById('hypoSnackAlert');
-
-        experiencedSymptomsLastWeekSelect.addEventListener('change', () => {
-            if (experiencedSymptomsLastWeekSelect.value === 'yes') {
-                hypoFollowUpQuestionsDiv.classList.remove('hidden');
-                hypoSnackAlert.classList.remove('hidden');
+            let alertMsg = "";
+            if (rapidCount > 1) alertMsg += "Usually, only one type of rapid/short-acting insulin is prescribed. ";
+            if (longCount > 1) alertMsg += "Usually, only one type of long/intermediate-acting insulin is prescribed. ";
+            
+            if (alertMsg) {
+                insulinSelectionAlert.textContent = "Heads up: " + alertMsg + "Please confirm with your doctor if you use multiple types from the same category.";
+                insulinSelectionAlert.classList.remove('hidden');
             } else {
-                hypoFollowUpQuestionsDiv.classList.add('hidden');
-                hypoSnackAlert.classList.add('hidden');
+                insulinSelectionAlert.classList.add('hidden');
             }
         });
+    });
 
+    if (experiencedSymptomsLastWeekSelect) {
+        experiencedSymptomsLastWeekSelect.addEventListener('change', (e) => {
+            const showFollowUp = e.target.value === 'yes';
+            hypoFollowUpQuestionsDiv.classList.toggle('hidden', !showFollowUp);
+            hypoSnackAlert.classList.toggle('hidden', !showFollowUp);
+        });
+    }
+    
+    function resetSiteRotationState() {
+        siteRotationOrder = 1;
+        sitesClickedCorrectly = 0;
+        resetSiteRotationVisuals();
+    }
 
-        // --- Step 4: Injection Site Rotation Logic ---
-        const injectionSites = document.querySelectorAll('.injection-site');
-        const currentSiteToClickSpan = document.getElementById('currentSiteToClick');
-        const siteRotationHint = document.getElementById('siteRotationHint');
-        const resetRotationBtn = document.getElementById('resetRotationBtn');
-        let expectedSite = 1;
-        let currentSiteSequence = [];
+    function resetSiteRotationVisuals() {
+         siteRotationButtons.forEach(btn => {
+            btn.classList.remove('active', 'completed', 'error');
+            btn.style.fill = '#93c5fd'; // Reset to default color
+        });
+        updateSiteRotationHint();
+    }
+    
+    if(resetRotationBtn) resetRotationBtn.addEventListener('click', resetSiteRotationState);
 
-        function resetSiteRotation() {
-            injectionSites.forEach(site => {
-                site.classList.remove('active', 'completed', 'error');
-            });
-            expectedSite = 1;
-            currentSiteSequence = [];
-            currentSiteToClickSpan.textContent = expectedSite;
-            siteRotationHint.textContent = `Click on site #${expectedSite}.`;
+    function updateSiteRotationHint() {
+        if (sitesClickedCorrectly === TOTAL_ROTATION_SITES) {
+            siteRotationHint.innerHTML = `<strong class="text-green-600">Great job! All sites selected. Click Next.</strong>`;
+        } else {
+            currentSiteToClickSpan.textContent = siteRotationOrder;
+            siteRotationHint.innerHTML = `Click on site #<span id="currentSiteToClick" class="font-bold text-xl text-blue-700">${siteRotationOrder}</span>.`;
         }
+    }
+    
+    siteRotationButtons.forEach(button => {
+        button.addEventListener('click', () => {
+            if (sitesClickedCorrectly === TOTAL_ROTATION_SITES) return; // Already completed
 
-        injectionSites.forEach(site => {
-            site.addEventListener('click', (event) => {
-                const clickedSiteNumber = parseInt(event.target.dataset.site);
+            const siteNumber = parseInt(button.dataset.site);
+            // Remove error class from all buttons before processing click
+            siteRotationButtons.forEach(btn => btn.classList.remove('error'));
 
-                if (clickedSiteNumber === expectedSite) {
-                    event.target.classList.add('completed');
-                    currentSiteSequence.push(clickedSiteNumber);
-                    expectedSite++;
-                    currentSiteToClickSpan.textContent = expectedSite;
-
-                    if (expectedSite > 8) {
-                        siteRotationHint.textContent = "Great job! All sites clicked in order.";
-                        // Unlock reward for site rotation if applicable (mock)
-                        // document.getElementById('rewardCardX').dataset.unlocked = "true";
-                        // document.getElementById('rewardStatusX').textContent = "Unlocked!";
-                    }
-                } else {
-                    event.target.classList.add('error');
-                    siteRotationHint.textContent = `Oops! That's not site #${expectedSite}. Try again.`;
-                    setTimeout(() => {
-                        event.target.classList.remove('error');
-                        siteRotationHint.textContent = `Click on site #${expectedSite}.`;
-                    }, 1000);
-                }
-            });
+            if (siteNumber === siteRotationOrder) {
+                button.classList.add('completed'); // 'active' was more for hover, 'completed' is persistent
+                button.style.fill = '#10b981'; // Green for completed
+                sitesClickedCorrectly++;
+                siteRotationOrder++;
+            } else if (!button.classList.contains('completed')) {
+                // Flash wrong button red briefly only if not already completed
+                button.classList.add('error');
+                setTimeout(() => { button.classList.remove('error'); }, 700);
+            }
+            updateSiteRotationHint();
         });
+    });
 
-        resetRotationBtn.addEventListener('click', resetSiteRotation);
 
-        // --- Tracking Page Logic ---
-        const bsSlider = document.getElementById('bsSlider');
-        const bsValueDisplay = document.getElementById('bsValueDisplay');
-        const saveReadingBtn = document.getElementById('saveReadingBtn');
-        const timeSlots = document.querySelectorAll('.time-slot');
-        const weeklySugarChartCtx = document.getElementById('weeklySugarChart').getContext('2d');
-        const currentDateReading = document.getElementById('currentDateReading');
+    function validateCurrentStep() {
+        if (currentModuleStep === 0) { 
+            const anyChecked = Array.from(insulinTypeCheckboxes).some(cb => cb.checked);
+            if (!anyChecked) { alert("Please select at least one type of insulin you use."); return false; }
+        }
+        if (currentModuleStep === 3) { 
+            if(sitesClickedCorrectly < TOTAL_ROTATION_SITES) {
+                 alert(`Please complete the site rotation guide by clicking all ${TOTAL_ROTATION_SITES} sites in order.`);
+                 return false;
+            }
+        }
+        // Add more validations
+        return true;
+    }
 
-        let selectedTimeSlot = null;
 
-        timeSlots.forEach(slot => {
-            slot.addEventListener('click', () => {
-                timeSlots.forEach(s => s.classList.remove('selected'));
-                slot.classList.add('selected');
-                selectedTimeSlot = slot.textContent;
-            });
+    // Tracking Page Logic
+    if (currentDateReadingEl) {
+        currentDateReadingEl.textContent = `Date: ${new Date().toLocaleDateString('en-US', { year: 'numeric', month: 'long', day: 'numeric' })}`;
+    }
+
+    if (bsSlider && bsValueDisplay) {
+        bsSlider.addEventListener('input', (e) => {
+            bsValueDisplay.textContent = `${e.target.value} mg/dL`;
         });
+    }
 
-        bsSlider.addEventListener('input', () => {
-            bsValueDisplay.textContent = `${bsSlider.value} mg/dL`;
+    let selectedTimeSlot = null;
+    timeSlotButtons.forEach(button => {
+        button.addEventListener('click', (e) => {
+            timeSlotButtons.forEach(btn => btn.classList.remove('selected'));
+            e.currentTarget.classList.add('selected');
+            selectedTimeSlot = e.currentTarget.textContent.trim(); // Get text content
         });
+    });
 
+    if (saveReadingBtn) {
         saveReadingBtn.addEventListener('click', () => {
-            if (selectedTimeSlot && bsSlider.value) {
-                alert(`Blood Sugar Reading Saved:\nTime: ${selectedTimeSlot}\nValue: ${bsSlider.value} mg/dL`);
-                // Simulate saving data for compliance
+            const value = bsSlider.value;
+            if (selectedTimeSlot && value) {
                 sessionEntries++;
                 updateMockCompliance();
-                // Reset selection
-                timeSlots.forEach(s => s.classList.remove('selected'));
+                console.log(`Saved Reading: Time: ${selectedTimeSlot}, Value: ${value} mg/dL, Session Entry #${sessionEntries}`);
+                alert(`Reading Saved: ${selectedTimeSlot} - ${value} mg/dL\n(Demo: Data not permanently stored. This is entry #${sessionEntries} in this session.)`);
+                
+                timeSlotButtons.forEach(btn => btn.classList.remove('selected'));
                 selectedTimeSlot = null;
                 bsSlider.value = 100;
-                bsValueDisplay.textContent = "100 mg/dL";
+                bsValueDisplay.textContent = '100 mg/dL';
+                
+                // Check for Silver Reward
+                if(sessionEntries >= 7){ // Mock condition for Silver
+                     const silverReward = document.getElementById('rewardSilver');
+                     if (silverReward && silverReward.dataset.unlocked === "false") {
+                        silverReward.dataset.unlocked = "true";
+                        silverReward.querySelector('img').classList.remove('opacity-50');
+                        alert("Congratulations! You've earned the Silver Coin for tracking consistently!");
+                     }
+                }
+
             } else {
-                alert('Please select a time slot and a blood sugar value.');
+                alert('Please select a time slot and blood sugar value.');
             }
         });
-
-        // Display current date
-        const today = new Date();
-        currentDateReading.textContent = today.toLocaleDateString('en-US', { weekday: 'long', year: 'numeric', month: 'long', day: 'numeric' });
-
-        // Mock Chart Data and Logic (for Weekly Overview)
-        const MOCK_WEEKLY_TARGET_ENTRIES = 14;
-        let sessionEntries = 0; // Tracks mock entries within the current session
-
-        function updateMockCompliance() {
-            const compliancePercentageEl = document.getElementById('compliancePercentage');
-            let percentage = Math.min(100, Math.round((sessionEntries / MOCK_WEEKLY_TARGET_ENTRIES) * 100));
+    }
+    
+    function updateMockCompliance() {
+        const compliancePercentageEl = document.getElementById('compliancePercentage');
+        if (compliancePercentageEl) {
+            const percentage = Math.min(100, Math.round((sessionEntries / MOCK_WEEKLY_TARGET_ENTRIES) * 100));
             compliancePercentageEl.textContent = `${percentage}%`;
         }
-        
-        // Mock Chart for Tracking Page
-        if (weeklySugarChartCtx) {
-            new Chart(weeklySugarChartCtx, {
-                type: 'line',
-                data: {
-                    labels: ['Mon', 'Tue', 'Wed', 'Thu', 'Fri', 'Sat', 'Sun'],
-                    datasets: [
-                        {
-                            label: 'Blood Sugar (mg/dL)',
-                            data: [120, 140, 110, 150, 130, 160, 125], // Example data
-                            borderColor: '#4f46e5', // Indigo-600
-                            backgroundColor: 'rgba(79, 70, 229, 0.2)', // Indigo-600 with transparency
-                            tension: 0.3,
-                            fill: true,
-                            pointRadius: 5,
-                            pointBackgroundColor: '#4f46e5',
-                            pointBorderColor: '#ffffff',
-                            pointHoverRadius: 7,
-                        }
-                    ]
-                },
-                options: {
-                    responsive: true,
-                    maintainAspectRatio: false,
-                    plugins: {
-                        legend: {
-                            display: false,
-                        },
-                        tooltip: {
-                            mode: 'index',
-                            intersect: false,
-                        }
-                    },
-                    scales: {
-                        y: {
-                            beginAtZero: false,
-                            title: {
-                                display: true,
-                                text: 'Blood Sugar (mg/dL)',
-                                color: '#475569' // Slate-600
-                            },
-                            grid: {
-                                color: '#e2e8f0' // Slate-200
-                            },
-                            ticks: {
-                                color: '#475569' // Slate-600
-                            }
-                        },
-                        x: {
-                            grid: {
-                                display: false
-                            },
-                            ticks: {
-                                color: '#475569' // Slate-600
-                            }
-                        }
-                    }
-                }
-            });
-            // Default mock stats
-            document.getElementById('tirPercentage').textContent = "70%";
-            document.getElementById('tirBarGreen').style.width = "70%";
-            document.getElementById('tirBarYellowHigh').style.width = "15%"; 
-            document.getElementById('tirBarRedHigh').style.width = "5%";    
-            document.getElementById('tirBarYellowLow').style.width = "7%";   
-            document.getElementById('tirBarRedLow').style.width = "3%";     
-            document.getElementById('avgSugar').textContent = "135 mg/dL";
-            document.getElementById('lowestSugar').textContent = "80 mg/dL";
-            document.getElementById('highestSugar').textContent = "190 mg/dL";
-            document.getElementById('glucoseVariability').textContent = "33%";
-        }
-        updateMockCompliance(); // Initialize compliance display
-
-        // Initial page load
-        showPage('dashboardPage'); 
-
-    </script>
+    }
+    
+    // Mock Chart for Tracking Page
+    if (weeklySugarChartCtx) {
+        new Chart(weeklySugarChartCtx, {
+            type: 'line',
+            data: {
+                labels: ['Mon', 'Tue', 'Wed', 'Thu', 'Fri', 'Sat', 'Sun'],
+                datasets: [ /* ... chart data ... */ ]
+            },
+            options: { /* ... chart options ... */ }
+        });
+        // Default mock stats
+        document.getElementById('tirPercentage').textContent = "70%";
+        document.getElementById('tirBarGreen').style.width = "70%";
+        document.getElementById('tirBarYellowHigh').style.width = "15%"; 
+        document.getElementById('tirBarRedHigh').style.width = "5%";    
+        document.getElementById('tirBarYellowLow').style.width = "7%";   
+        document.getElementById('tirBarRedLow').style.width = "3%";     
+        document.getElementById('avgSugar').textContent = "135 mg/dL";
+        document.getElementById('lowestSugar').textContent = "80 mg/dL";
+        document.getElementById('highestSugar').textContent = "190 mg/dL";
+        document.getElementById('glucoseVariability').textContent = "33%";
+    }
+    updateMockCompliance(); // Initialize compliance display
+    updateStartLearningButton(); // Initialize dashboard button state
+});
+</script>
 </body>
 </html>
